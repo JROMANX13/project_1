@@ -1,5 +1,10 @@
 # TechnoWebSite
 
+![TechnoWebSite](images/techno.jpg)
+
+
+
+
 ## Description
 
 This project is a modern web page developed using **HTML** and **CSS**. It features a responsive design, ensuring optimal viewing experiences across a variety of devices and screen sizes.
