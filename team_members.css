@@ -1,0 +1,94 @@
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@900&family=Sumana:wght@700&display=swap");
+
+:root {
+  --primary: rgba(37, 37, 37, 1);
+  --secondary: rgba(252, 41, 74, 1);
+  --shades: rgba(238, 238, 238, 1);
+}
+
+* {
+  scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Source Code Pro", monospace;
+  line-height: 1.6;
+  margin: 0;
+  background-color: var(--primary);
+  color: var(--shades);
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding: 3vw;
+}
+
+.header {
+  background-color: var(--primary);
+}
+
+.person {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 250px;
+}
+.container-person {
+  height: 312px;
+  width: 400px;
+  cursor: pointer;
+  transform: scale(0.48);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.circle {
+  position: absolute;
+  background: var(--color);
+  height: 380px;
+  width: 380px;
+  top: 210px;
+  left: 10px;
+  border-radius: 50%;
+}
+.person img {
+  position: relative;
+  width: 340px;
+  top: 164px;
+  left: 22px;
+  transform: translateY(20px) scale(1.15);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.conianer-inner {
+  position: relative;
+  clip-path: path("M 390,400 C 390,504.9341 304.9341,590 200,590 95.065898,590 10,504.9341 10,400 V 10 H 200 390 Z");
+  top: -200px;
+}
+.divider {
+  height: 3px;
+  width: 130px;
+  border-radius: 5px;
+  background: var(--color);
+}
+.person h1 {
+  color: #f9f8f8f8;
+  margin: 16px 0 0 0;
+}
+.person p {
+  font-family: arial;
+  color: #d1bdbd;
+  font-size: 14px;
+  margin-top: 5px;
+}
+/* hover */
+.container-person:hover {
+  transform: scale(0.54);
+}
+.container-person:hover img {
+  transform: translateY(0) scale(1.3);
+}
