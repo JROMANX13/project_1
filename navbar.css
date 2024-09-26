@@ -115,6 +115,10 @@
   content: "4. ";
 }
 
+.nav__item:nth-child(5) .nav__link::before {
+  content: "5. ";
+}
+
 @media (min-width: 800px) {
   .navbar,
   .nav__items {
