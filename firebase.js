@@ -34,7 +34,7 @@ btnSignup.addEventListener("click", (event) => {
     .then((userCredential) => {
       // Signed up
       const user = userCredential.user;
-    //   alert("User created successfully");
+    
       Swal.fire({
         position: "top-end",
         icon: "success",
@@ -43,14 +43,19 @@ btnSignup.addEventListener("click", (event) => {
         timer: 2000
       }).then(() => {
         // Redirigir a otra página después de que la alerta se cierre
-        window.location.href = "login.html"; // Cambia "your-page.html" por la URL deseada
+        window.location.href = "login.html"; 
       });
       // ...
     })
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
-      alert(errorMessage);
+      
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: `${errorMessage}`,        
+      });
       // ..
     });
 });
@@ -69,7 +74,7 @@ btnLogin.addEventListener("click", (event) => {
       .then((userCredential) => {
         // Signed up
         const user = userCredential.user;
-      //   alert("User created successfully");
+      
         Swal.fire({
           position: "top-end",
           icon: "success",
@@ -85,7 +90,12 @@ btnLogin.addEventListener("click", (event) => {
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        alert(errorMessage);
+        
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: `${errorMessage}`,        
+        });
         // ..
       });
   });

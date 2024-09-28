@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="adm-panel.css" />
   </head>
   <body>
-    <div class="container">
+    <div id="loading">Loading...</div>
+    <div class="container" style="display: none">
       <nav class="sidebar">
         <h2>Admin Panel</h2>
         <ul>
@@ -15,7 +16,7 @@
           <li><a href="#">Users</a></li>
           <li><a href="#">Settings</a></li>
           <li><a href="#">Reports</a></li>
-          <li><a href="login.html">Logout</a></li>
+          <li><a href="login.html" id="btnLogout">Logout</a></li>
         </ul>
       </nav>
       <main class="main-content">
@@ -23,5 +24,63 @@
         <p>Here you can manage users, settings, and more.</p>
       </main>
     </div>
+
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js";
+      import {
+        getAuth,
+        onAuthStateChanged,
+        setPersistence,
+        browserSessionPersistence,
+        signOut,
+      } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-auth.js";
+
+      // Inicializa Firebase
+      const firebaseConfig = {
+        apiKey: "AIzaSyCpjN1D27a8C4nJX30E8-FDbBH0wa9rv3c",
+        authDomain: "projec1-tech.firebaseapp.com",
+        projectId: "projec1-tech",
+        storageBucket: "projec1-tech.appspot.com",
+        messagingSenderId: "482783758924",
+        appId: "1:482783758924:web:5abd1c33f27fae815682e9",
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const auth = getAuth();
+      const btnLogout = document.getElementById("btnLogout");
+
+      // Establecer la persistencia de la sesión
+      setPersistence(auth, browserSessionPersistence)
+        .then(() => {
+          // Verifica el estado de autenticación del usuario
+          onAuthStateChanged(auth, (user) => {
+            const loading = document.getElementById("loading");
+            const container = document.querySelector(".container");
+
+            if (!user) {
+              // Si el usuario no está autenticado, redirigir a la página de inicio de sesión
+              window.location.href = "login.html";
+            } else {
+              // Si el usuario está autenticado, ocultar el loading y mostrar el contenido
+              loading.style.display = "none";
+              container.style.display = "block";
+            }
+          });
+        })
+        .catch((error) => {
+          console.error("Error setting persistence:", error);
+        });
+
+      btnLogout.addEventListener("click", () => {
+        signOut(auth)
+          .then(() => {
+            // Cierre de sesión 
+            window.location.href = "login.html"; // Redirige a la página de inicio de sesión
+          })
+          .catch((error) => {
+            console.error("Error al cerrar sesión:", error);
+          });
+      });
+    </script>
   </body>
 </html>
