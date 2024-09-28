@@ -15,11 +15,14 @@ The page is designed to be visually appealing and functionally robust, leveragin
 
 ![HTML](https://img.icons8.com/color/48/000000/html-5.png) 
 ![CSS](https://img.icons8.com/color/48/000000/css3.png) 
+![JavaScript](https://img.icons8.com/color/48/000000/javascript.png) 
+![Firebase](https://img.icons8.com/color/48/000000/firebase.png)
   
 ## Features
 
 - **Responsive Design**: Adapts to various screen sizes and devices.
 - **Modern Styling**: Utilizes CSS for contemporary and attractive visuals.
 - **Clean Structure**: Built with semantic HTML for better readability and SEO.
+-  **Firebase Integration**: Includes authentication features such as sign up, login, user session persistence, and logout functionality.
 
 
