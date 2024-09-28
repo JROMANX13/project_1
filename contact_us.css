@@ -25,6 +25,12 @@ body {
   flex-wrap: wrap;
 }
 
+.error-message {
+  color: red; 
+  font-size: 0.875em;
+  margin-top: -12px; 
+}
+
 .contact-links,
 .contact-form-wrapper {
   width: 50%;
@@ -113,6 +119,7 @@ label,
 input,
 textarea {
   font-family: "Poppins", sans-serif;
+  margin-top: 15px;
 }
 
 label {

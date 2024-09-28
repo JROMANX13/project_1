@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="navbar.css" />
     <link rel="stylesheet" href="footer.css" />
-    <link rel="stylesheet" href="contact_us.css">
+    <link rel="stylesheet" href="contact_us.css" />
     <!----- FONT AWESOME CSS FOR ICONS FONTS ------>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
     <title>Contact us</title>
@@ -49,18 +49,21 @@
             </div>
           </div>
           <div class="contact-form-wrapper">
-            <form>
+            <form id="contactForm">
               <div class="form-item">
-                <input type="text" name="sender" required />
+                <input type="text" name="sender" id="name" />
                 <label>Name:</label>
+                <div class="error-message" id="nameError"></div>
               </div>
               <div class="form-item">
-                <input type="text" name="email" required />
+                <input type="email" name="email" id="email" />
                 <label>Email:</label>
+                <div class="error-message" id="emailError"></div>
               </div>
               <div class="form-item">
-                <textarea class="" name="message" required></textarea>
+                <textarea class="" name="message" id="message"></textarea>
                 <label>Message:</label>
+                <div class="error-message" id="messageError"></div>
               </div>
               <button class="submit-btn">Send</button>
             </form>
@@ -130,5 +133,59 @@
         </div>
       </div>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+      const form = document.getElementById("contactForm");
+      const fields = ["name", "email", "message"];
+
+      fields.forEach((fieldId) => {
+        const input = document.getElementById(fieldId);
+        input.addEventListener("input", () => {
+          input.style.border = ""; // Quita el borde rojo cuando el usuario empieza a llenar el campo
+          document.getElementById(fieldId + "Error").innerText = ""; // Limpia el mensaje de error
+        });
+      });
+
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        let valid = true;
+
+        // Limpiar mensajes de error
+        const errorMessages = ["nameError", "emailError", "messageError"];
+        errorMessages.forEach((id) => {
+          document.getElementById(id).innerText = "";
+          document.getElementById(id).previousElementSibling.style.border = ""; // Restablecer borde
+        });
+
+        const fields = [
+          { id: "name", message: "Name is required." },
+          { id: "email", message: "Email is required." },
+          { id: "message", message: "Message is required." },
+        ];
+
+        fields.forEach((field) => {
+          const input = document.getElementById(field.id);
+          if (!input.value.trim()) {
+            input.style.border = "2px solid red";
+            document.getElementById(field.id + "Error").innerText = field.message;
+            valid = false;
+          }
+        });
+
+        if (valid) {
+          // Si todo es valido
+          
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Form submitted successfully!",
+            showConfirmButton: false,
+            timer: 2000,
+          }).then(() => {
+            this.submit(); 
+          });
+        }
+      });
+    </script>
   </body>
 </html>
