@@ -7,9 +7,9 @@
 
 ## Description
 
-This project is a modern web page developed using **HTML** and **CSS**. It features a responsive design, ensuring optimal viewing experiences across a variety of devices and screen sizes.
+This project is a modern web page developed using **HTML**,**CSS**, **Javascript** and **Firebase**. It features a responsive design that ensures optimal viewing experiences across a variety of devices and screen sizes.
 
-The page is designed to be visually appealing and functionally robust, leveraging the full capabilities of HTML for structure and CSS for styling. The responsive design ensures that the page adapts seamlessly to different screen resolutions, making it accessible and user-friendly on both desktop and mobile devices.
+The page is designed to be visually appealing and functionally robust, leveraging HTML for structure, CSS for styling, and JavaScript for interactivity and dynamic content. Additionally, Firebase provides essential features such as user sign-up, login functionality, browser-level user persistence, and secure session management. This integration enhances user experience and accessibility, making the page user-friendly on both desktop and mobile devices.
 
 ## Technologies Used
 
